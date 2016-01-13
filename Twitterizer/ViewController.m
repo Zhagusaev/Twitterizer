@@ -29,12 +29,14 @@
     NSString* initialString = self.textView.text;
     NSMutableString* twitterizedString = [NSMutableString new];
 
-    NSArray *vowels = {@"a", @"e", @"i", @"u", @"o"};
+    NSArray *vowels = @[@"a", @"e", @"i", @"u", @"o"];
     
     
-    for(int i=0; i < vowels.count - 1; i++){
-        if (![initialString containsString:vowels[i]]) {
-            <#statements#>
+    for(int i=0; i < vowels.count - 1; i++)
+    {
+        if ([initialString containsString:vowels[i]])
+        {
+            NSLog(@"%@", initialString);
         }
         
     }
