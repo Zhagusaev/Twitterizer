@@ -36,10 +36,12 @@
     {
         if ([initialString containsString:vowels[i]])
         {
-            NSLog(@"%@", initialString);
+//            NSLog(@"%@", initialString);
+            [twitterizedString setString: [initialString stringByReplacingOccurrencesOfString:vowels[i]  withString:@""]];
         }
         
     }
+    self.textView.text = twitterizedString;
 }
 
 
