@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -22,6 +23,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)onTwitterizeButtonPressed:(UIButton *)sender
+{
+    NSString* initialString = self.textView.text;
+    NSMutableString* twitterizedString = [NSMutableString new];
+    //for(int i=0; )
+    
 }
 
 @end
