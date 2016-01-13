@@ -32,18 +32,21 @@ int counter =0;
     NSString* initialString = self.textView.text;
     NSMutableString* twitterizedString = [NSMutableString new];
 
-    NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
-    
+//    NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
+    NSString *vowels = @"aeiou";
     
     for(int i=0; i < initialString.length; i++)
     {
-        for (int j=0; j < vowels.count; j++) {
+        for (int j=0; j < vowels.length; j++) {
             
-            NSLog(@"%@", vowels[i]);
-            if ([initialString characterAtIndex:i] == vowels[j])
+            if ([initialString characterAtIndex:i] != [vowels characterAtIndex:j])
             {
-                NSLog(@"%@", initialString);
-                [twitterizedString setString: [initialString stringByReplacingOccurrencesOfString:vowels[j]  withString:@""]];
+//                NSLog(@"%c", [initialString characterAtIndex:i]);
+                NSString *converted = [NSString stringWithFormat:@"%c",[initialString characterAtIndex:i]];
+                
+                [twitterizedString appendString:converted];
+            
+
             }
         }
     }
