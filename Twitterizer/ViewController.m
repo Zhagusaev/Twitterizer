@@ -8,12 +8,15 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 
 @end
 
 @implementation ViewController
+
+int counter =0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,11 +32,12 @@
     NSString* initialString = self.textView.text;
     NSMutableString* twitterizedString = [NSMutableString new];
 
-    NSArray *vowels = @[@"a", @"e", @"i", @"u", @"o"];
+    NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
     
     
-    for(int i=0; i < vowels.count - 1; i++)
+    for(int i=0; i < vowels.count; i++)
     {
+        NSLog(@"%@", vowels[i]);
         if ([initialString containsString:vowels[i]])
         {
 //            NSLog(@"%@", initialString);
@@ -44,5 +48,16 @@
     self.textView.text = twitterizedString;
 }
 
+-(void)textViewDidChange:(UITextView *)textView
+{
+    NSUInteger length;
+    length = [textView.text length];
+    
+    self.counterLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)length];
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+}
 
 @end
