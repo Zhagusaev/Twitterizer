@@ -35,15 +35,17 @@ int counter =0;
     NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
     
     
-    for(int i=0; i < vowels.count; i++)
+    for(int i=0; i < initialString.length; i++)
     {
-        NSLog(@"%@", vowels[i]);
-        if ([initialString containsString:vowels[i]])
-        {
-//            NSLog(@"%@", initialString);
-            [twitterizedString setString: [initialString stringByReplacingOccurrencesOfString:vowels[i]  withString:@""]];
+        for (int j=0; j < vowels.count; j++) {
+            
+            NSLog(@"%@", vowels[i]);
+            if ([initialString characterAtIndex:i] == vowels[j])
+            {
+                NSLog(@"%@", initialString);
+                [twitterizedString setString: [initialString stringByReplacingOccurrencesOfString:vowels[j]  withString:@""]];
+            }
         }
-        
     }
     self.textView.text = twitterizedString;
 }
