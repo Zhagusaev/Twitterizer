@@ -33,21 +33,15 @@ int counter =0;
     NSMutableString* twitterizedString = [NSMutableString new];
 
 //    NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
-    NSString *vowels = @"aeiou";
+    NSString *vowels = @"AEIOUaeiou";
     
-    for(int i=0; i < initialString.length; i++)
+    for(int i = 0; i < initialString.length; i++)
     {
-        for (int j=0; j < vowels.length; j++) {
-            
-            if ([initialString characterAtIndex:i] != [vowels characterAtIndex:j])
-            {
-//                NSLog(@"%c", [initialString characterAtIndex:i]);
-                NSString *converted = [NSString stringWithFormat:@"%c",[initialString characterAtIndex:i]];
-                
-                [twitterizedString appendString:converted];
-            
-
-            }
+        NSString* converted = [NSString stringWithFormat:@"%c", [initialString characterAtIndex:i]];
+        
+        if(![vowels containsString: converted])
+        {
+            [twitterizedString appendString:converted];
         }
     }
     self.textView.text = twitterizedString;
@@ -66,4 +60,11 @@ int counter =0;
     
 }
 
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    for(int i=0; i < textView.text.length; i+2)
+    {
+        
+    }
+}
 @end
