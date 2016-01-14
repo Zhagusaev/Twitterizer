@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController
 
-
+-(NSMutableString*)addHashtags:(NSMutableString *) originalString;
 @end
 
